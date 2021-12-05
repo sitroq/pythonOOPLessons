@@ -5,7 +5,9 @@ class UserMail:
     def get_email(self):
         return self.__email
     def set_email(self, value):
-        if (value.count('@') == 1 and value.count('.') == 1):
+        if isinstance(value, str) \
+        and value.count('@') == 1 \
+        and '.' in value[value.find('@') + 1:]:
             self.__email = value
         else:
             print("Ошибочная почта")
